@@ -1,0 +1,13 @@
+
+sed "s/HDFSNAMENODERPC_SERVICE_HOST/$HDFSNAMENODERPC_SERVICE_HOST/;s/HDFSNAMENODERPC_SERVICE_PORT/$HDFSNAMENODERPC_SERVICE_PORT/" /etc/hadoop/conf/core-site.xml.template > /etc/hadoop/conf/core-site.xml
+cat /etc/hadoop/conf/core-site.xml
+
+# create datanode if not exist
+HADOOP_HDFS_DIR=/var/lib/hadoop-hdfs/cache/hdfs/dfs/data
+for i in {1..4}; do
+  if [ ! -d ${HADOOP_HDFS_DIR}/${i}/current ]; then
+    mkdir -p ${HADOOP_HDFS_DIR}/${i}
+    chown -R hdfs:hdfs ${HADOOP_HDFS_DIR}/${i}
+    chmod 700 ${HADOOP_HDFS_DIR}/${i}
+  fi
+done

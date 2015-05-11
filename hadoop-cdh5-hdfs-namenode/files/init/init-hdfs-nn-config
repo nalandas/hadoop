@@ -1,0 +1,20 @@
+if [ x"$HDFSNAMENODERPC_SERVICE_HOST" = x"" ]; then
+  HDFSNAMENODERPC_SERVICE_HOST=`ip addr show eth0 | grep -Po 'inet \K[\d.]+'`
+  if [[ -n $NEW_IP ]]; then
+    echo "Container IP addr from SDN: $NEW_IP .."
+    HDFSNAMENODERPC_SERVICE_HOST="$NEW_IP"
+  fi
+fi
+sed s/HOSTNAME/$HDFSNAMENODERPC_SERVICE_HOST/ /etc/hadoop/conf/core-site.xml.template > /etc/hadoop/conf/core-site.xml
+cat /etc/hadoop/conf/core-site.xml
+
+# create and format namenode if not exist
+# CLUSTER_ID=CID-c162a031-783e-4db8-823f-ab1ef43dbae8 # an unique cluster id for hadoop cluster
+HADOOP_HDFS_DIR=/var/lib/hadoop-hdfs/cache/hdfs/dfs/name
+if [ ! -d ${HADOOP_HDFS_DIR}/current ]; then
+  mkdir -p $HADOOP_HDFS_DIR
+  chown -R hdfs:hdfs $HADOOP_HDFS_DIR
+  chmod 700 $HADOOP_HDFS_DIR
+  su -c "hdfs namenode -format -nonInteractive" hdfs # -clusterId $CLUSTER_ID # always format with the same cluster id
+fi
+
