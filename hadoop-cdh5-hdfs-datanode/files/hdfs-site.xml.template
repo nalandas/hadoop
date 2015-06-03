@@ -24,7 +24,7 @@
   </property>
   <property>
     <name>dfs.datanode.data.dir</name>
-    <value>file:///var/lib/hadoop-hdfs/cache/hdfs/dfs/data/1/,file:///var/lib/hadoop-hdfs/cache/hdfs/dfs/data/2/,file:///var/lib/hadoop-hdfs/cache/hdfs/dfs/data/3/,file:///var/lib/hadoop-hdfs/cache/hdfs/dfs/data/4/</value>
+    <value>file:///var/lib/hadoop-hdfs/cache/hdfs/dfs/data</value>
   </property>
   <property>
     <name>dfs.datanode.max.xcievers</name>

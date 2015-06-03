@@ -9,7 +9,7 @@ if [ x"$HDFS_NAMENODE_HOST" = x"" ]; then
     fi
   fi
 fi
-sed "s#HOSTNAME#$HDFS_NAMENODE_HOST#g;s#HDFS_NAMENODE_RPC_PORT#$HDFS_NAMENODE_RPC_PORT#g;s#HDFS_NAMENODE_HTTP_IP#$HDFS_NAMENODE_HOST#g;s#HDFS_NAMENODE_HTTP_PORT#$HDFS_NAMENODE_HTTP_PORT#g;s#HDFS_NAMENODE_HTTPS_IP#$HDFS_NAMENODE_HOST#g;s#HDFS_NAMENODE_HTTPS_PORT#$HDFS_NAMENODE_HTTPS_PORT#g" /etc/hadoop/conf/core-site.xml.template > /etc/hadoop/conf/core-site.xml
+sed "s#HOSTNAME#0.0.0.0#g;s#HDFS_NAMENODE_RPC_PORT#$HDFS_NAMENODE_RPC_PORT#g;s#HDFS_NAMENODE_HTTP_IP#$HDFS_NAMENODE_HOST#g;s#HDFS_NAMENODE_HTTP_PORT#$HDFS_NAMENODE_HTTP_PORT#g;s#HDFS_NAMENODE_HTTPS_IP#$HDFS_NAMENODE_HOST#g;s#HDFS_NAMENODE_HTTPS_PORT#$HDFS_NAMENODE_HTTPS_PORT#g" /etc/hadoop/conf/core-site.xml.template > /etc/hadoop/conf/core-site.xml
 cat /etc/hadoop/conf/core-site.xml
 
 # create and format namenode if not exist
