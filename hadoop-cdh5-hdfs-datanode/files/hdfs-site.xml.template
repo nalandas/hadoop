@@ -42,5 +42,30 @@
     <name>dfs.permissions</name>
     <value>false</value>
   </property>
+  <property>
+    <name>dfs.datanode.address</name>
+    <value>HDFS_DATANODE_SERVER_IP:HDFS_DATANODE_SERVER_PORT</value>
+  </property>
+  <property>
+    <name>dfs.datanode.http.address</name>
+    <value>HDFS_DATANODE_HTTP_IP:HDFS_DATANODE_HTTP_PORT</value>
+  </property>
+  <property>
+    <name>dfs.datanode.ipc.address</name>
+    <value>HDFS_DATANODE_IPC_IP:HDFS_DATANODE_IPC_PORT</value>
+  </property>
+  <property>
+    <name>dfs.datanode.https.address</name>
+    <value>HDFS_DATANODE_HTTPS_IP:HDFS_DATANODE_HTTPS_PORT</value>
+  </property>
+  <property>
+    <name>dfs.client.use.datanode.hostname</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>dfs.datanode.use.datanode.hostname</name>
+    <value>true</value>
+  </property>
+
 </configuration>
 

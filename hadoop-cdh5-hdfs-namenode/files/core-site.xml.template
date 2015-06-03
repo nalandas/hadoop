@@ -19,6 +19,15 @@
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://HOSTNAME:8020</value>
+    <value>hdfs://HOSTNAME:HDFS_NAMENODE_RPC_PORT</value>
   </property>
+  <property>
+    <name>dfs.namenode.http-address</name>
+    <value>HDFS_NAMENODE_HTTP_IP:HDFS_NAMENODE_HTTP_PORT</value>
+  </property>
+  <property>
+    <name>dfs.namenode.https-address</name>
+    <value>HDFS_NAMENODE_HTTPS_IP:HDFS_NAMENODE_HTTPS_PORT</value>
+  </property>
+
 </configuration>

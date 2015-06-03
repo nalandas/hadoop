@@ -9,8 +9,10 @@ RUN alternatives --set hadoop-conf /etc/hadoop/conf.empty
 
 # Configure hadoop
 ADD files/core-site.xml.template /etc/hadoop/conf/core-site.xml.template
-ADD files/hdfs-site.xml /etc/hadoop/conf/hdfs-site.xml
+ADD files/hdfs-site.xml.template /etc/hadoop/conf/hdfs-site.xml.template
 
-EXPOSE 50020 50090 50070 50010 50075 8031 8032 8033 8040 8042 49707 22 8088 8030
-
+ENV HDFS_DATANODE_SERVER_PORT 50010
+ENV HDFS_DATANODE_HTTP_PORT 50075
+ENV HDFS_DATANODE_IPC_PORT 50020
+ENV HDFS_DATANODE_HTTPS_PORT 50475
 
